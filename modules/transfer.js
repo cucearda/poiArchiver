@@ -14,6 +14,7 @@ const transferPromise = (data, destination, connectionProperties) => {
 
                 else {
                     console.log('Here');
+                    c.end();
                     resolve('It worked!');
                 }
             })

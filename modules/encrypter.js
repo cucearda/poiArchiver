@@ -2,10 +2,10 @@
 // writes the encrypted data to target
 const fs = require('fs');
 const crypto = require('crypto');
-const hash = crypto.createHash('md5');     // get 256bit hashed key value
 
 function encrypt(path, key) // gets file path and key, returns files data encrypted in a buffer
 {
+    const hash = crypto.createHash('md5');     // get 256bit hashed key value
     const hashed = hash.update(key).digest('hex');
 
     const iv = crypto.randomBytes(16);

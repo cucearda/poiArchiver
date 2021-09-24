@@ -3,7 +3,7 @@ const zipper = require('./modules/zipper');
 const encrypter = require('./modules/encrypter');
 const moment = require('moment');
 const transfer = require('./modules/transfer');
-
+const config = require('config')
 
 const job = new CronJob('0 20 */1 * * *', async () => {
 
@@ -16,6 +16,6 @@ const job = new CronJob('0 20 */1 * * *', async () => {
   //zipper
   const zippedBuffer = await zipper(encryptedBuffer, 'data.enc');
   //transfer
-  await transfer(zippedBuffer, './site/test/test.zip', config.get('connectionProperties'));
+  await transfer(zippedBuffer, './site/wwwroot/test/test.zip', config.get('connectionProperties'));
 }, null, true, 'Turkey');
 job.start();
